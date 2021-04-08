@@ -1,0 +1,17 @@
+backports.functools-lru-cache==1.6.3
+backports.ssl-match-hostname==3.7.0.1
+beautifulsoup4==4.9.3
+bs4==0.0.1
+certifi==2020.12.5
+chardet==4.0.0
+Django==1.11.29
+docker==4.4.4
+idna==2.10
+ipaddress==1.0.23
+lxml==4.6.3
+pytz==2021.1
+requests==2.25.1
+six==1.15.0
+soupsieve==1.9.6
+urllib3==1.26.3
+websocket-client==0.58.0
