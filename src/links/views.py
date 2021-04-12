@@ -2,7 +2,6 @@ from django.shortcuts import render
 from .models import Link
 from .forms import AddLinkForm
 
-# Create your views here.
 
 def home_view(request):
     no_discounted = 0
@@ -16,7 +15,7 @@ def home_view(request):
                 form.save()
         except AttributeError:
             error = "Couldn't get the name or the price"
-        except
+        except:
             error = "Something went wrong"
 
     form = AddLinkForm()
