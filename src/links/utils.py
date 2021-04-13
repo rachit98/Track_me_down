@@ -14,7 +14,17 @@ def get_link_data(url):
     name = soup.select_one(selector="#productTitle").getText()
     name = name.strip()
 
-    price = soup.select_one(selector="#priceblock_ourprice").getText()
+    try:
+        price = soup.select_one(selector="#priceblock_ourprice").getText()
+    except AttributeError:
+        try:
+            price = soup.select_one(selector="#priceblock_saleprice").getText()
+        except AttributeError:
+            try:
+                price = soup.select_one(selector="#priceblock_dealprice").getText()
+            except:
+                return name, 0
+
     price = price.replace(',', '')
     price = float(price[1:])
 

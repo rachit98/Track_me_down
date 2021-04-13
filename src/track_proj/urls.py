@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.urls import path
 from django.contrib import admin
+from links.views import home_view, update_prices, LinkDeleteView
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
+    path('',home_view,name='home'),
+    path('update/',update_prices, name='update-prices'),
+    path('delete/<pk>/',LinkDeleteView.as_view(),name="delete"),
 ]
