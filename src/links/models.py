@@ -8,6 +8,7 @@ class Link(models.Model):
     current_price = models.FloatField(blank=True)
     old_price = models.FloatField(default=0)
     price_difference = models.FloatField(default=0)
+    rating = models.CharField(max_length=20,blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -18,7 +19,8 @@ class Link(models.Model):
         ordering = ('price_difference','-created')
 
     def save(self,*args,**kwargs):
-        name, price = get_link_data(self.url)
+        name, price, rating, top_reviews = get_link_data(self.url)
+        print(rating)
         old_price = self.current_price
         if self.current_price:
             if price!=old_price:
@@ -32,5 +34,8 @@ class Link(models.Model):
         
         self.name = name
         self.current_price = price
+        self.rating = rating
+        #print(self.rating)
+        self.top_reviews = top_reviews
         
         super().save(*args,**kwargs)

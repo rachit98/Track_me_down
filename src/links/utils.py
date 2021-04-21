@@ -1,6 +1,8 @@
 import requests
 import lxml
 from bs4 import BeautifulSoup
+from textblob import TextBlob
+import pandas as pd
 
 def get_link_data(url):
     headers = {
@@ -28,4 +30,35 @@ def get_link_data(url):
     price = price.replace(',', '')
     price = float(price[1:])
 
-    return name, price
+    try:
+        rating = soup.find("i", attrs={'class': 'a-icon a-icon-star a-star-4-5'}).string.strip()
+    except AttributeError:
+        try:
+            rating = soup.find("span", attrs={'class': 'a-icon-alt'}).string.strip()
+        except:
+            rating = ""
+
+    review = soup.findAll('div',class_="a-expander-content reviewText review-text-content a-expander-partial-collapse-content")
+
+    review_list = []
+    top_reviews = pd.DataFrame()
+    pol = lambda x: TextBlob(x).sentiment.polarity
+    sub = lambda x: TextBlob(x).sentiment.subjectivity
+
+    for re in review:
+        review_list.append(re.span.text.replace("\n", ""))
+
+    def getAnalysis(score):
+        if score < 0:
+            return 'Negative'
+        elif score == 0:
+            return 'Neutral'
+        else:
+            return 'Positive'
+
+    top_reviews['Review']=review_list
+    top_reviews['Polarity'] = top_reviews['Review'].apply(pol)
+    top_reviews['Subjectivity'] = top_reviews['Review'].apply(sub)
+    top_reviews['Analysis'] = top_reviews['Polarity'].apply(getAnalysis)
+
+    return name, price, rating, top_reviews
