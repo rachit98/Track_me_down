@@ -9,6 +9,10 @@ class Link(models.Model):
     old_price = models.FloatField(default=0)
     price_difference = models.FloatField(default=0)
     rating = models.CharField(max_length=20,blank=True)
+    total = models.IntegerField(blank=True,default=0)
+    negative = models.IntegerField(blank=True,default=0)
+    positive = models.IntegerField(blank=True,default=0)
+    neutral = models.IntegerField(blank=True,default=0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
@@ -19,7 +23,7 @@ class Link(models.Model):
         ordering = ('price_difference','-created')
 
     def save(self,*args,**kwargs):
-        name, price, rating, top_reviews = get_link_data(self.url)
+        name, price, rating, total, negative, positive, neutral  = get_link_data(self.url)
         print(rating)
         old_price = self.current_price
         if self.current_price:
@@ -35,7 +39,10 @@ class Link(models.Model):
         self.name = name
         self.current_price = price
         self.rating = rating
-        #print(self.rating)
-        self.top_reviews = top_reviews
+        self.total = total
+        self.negative = negative
+        self.positive = positive
+        self.neutral = neutral
+        #self.top_reviews = top_reviews
         
         super().save(*args,**kwargs)

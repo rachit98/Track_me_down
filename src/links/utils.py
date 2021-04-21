@@ -61,4 +61,19 @@ def get_link_data(url):
     top_reviews['Subjectivity'] = top_reviews['Review'].apply(sub)
     top_reviews['Analysis'] = top_reviews['Polarity'].apply(getAnalysis)
 
-    return name, price, rating, top_reviews
+    tot = len(top_reviews.index)
+    neg = 0
+    pos = 0
+    neu = 0
+    
+    for item in top_reviews['Analysis']:
+        if item == 'Negative':
+            neg += 1
+        elif item == 'Neutral':
+            neu += 1
+        elif item == 'Positive':
+            pos += 1
+
+
+
+    return name, price, rating, tot, neg, pos, neu
