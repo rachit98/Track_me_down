@@ -5,6 +5,7 @@ from .utils import get_link_data
 class Link(models.Model):
     name = models.CharField(max_length=220,blank=True)
     url = models.URLField()
+    trigger = models.FloatField(blank=True,default=0)
     current_price = models.FloatField(blank=True)
     old_price = models.FloatField(default=0)
     price_difference = models.FloatField(default=0)

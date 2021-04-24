@@ -49,5 +49,7 @@ class LinkDeleteView(DeleteView):
 def update_prices(request):
     qs = Link.objects.all()
     for link in qs:
+        if link.trigger >= link.current_price:
+            print('Price reduced for ',link.name)
         link.save()
     return redirect('home')
