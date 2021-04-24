@@ -24,7 +24,7 @@ class Link(models.Model):
 
     def save(self,*args,**kwargs):
         name, price, rating, total, negative, positive, neutral  = get_link_data(self.url)
-        print(rating)
+        #print(rating)
         old_price = self.current_price
         if self.current_price:
             if price!=old_price:
