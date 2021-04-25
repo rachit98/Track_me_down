@@ -8,8 +8,8 @@ SCM: GitHub
 Development: Python3
 APIs: BeautifulSoup4, Twilio
 UI: Django
-Database: MongoDB
-Deployment Server: Heroku
+Database: SQLite
+Deployment: Local
 
 
 Functionalities:
