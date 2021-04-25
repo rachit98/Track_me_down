@@ -51,5 +51,7 @@ def update_prices(request):
     for link in qs:
         if link.trigger >= link.current_price:
             print('Price reduced for ',link.name,'-------------ph no ',link.phno)
-        link.save()
+            link.delete()
+        else:
+            link.save()
     return redirect('home')
