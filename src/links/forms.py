@@ -4,7 +4,7 @@ from .models import Link
 class AddLinkForm(forms.ModelForm):
     class Meta:
         model = Link
-        fields = ('url','trigger','phno',)
+        fields = ('url','trigger','phno','mail',)
     
     
 

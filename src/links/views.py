@@ -3,6 +3,10 @@ from django.urls import reverse_lazy
 from .models import Link
 from .forms import AddLinkForm
 from django.views.generic import DeleteView
+import pywhatkit
+import smtplib
+import datetime
+
 
 def home_view(request):
     no_discounted = 0
@@ -50,7 +54,35 @@ def update_prices(request):
     qs = Link.objects.all()
     for link in qs:
         if link.trigger >= link.current_price:
-            print('Price reduced for ',link.name,'-------------ph no ',link.phno)
+            #print('Price reduced for ',link.name,'-------------ph no ',link.phno)
+            now = datetime.datetime.now()
+            minu = now.minute + 2 
+            hour = 0
+            if minu>59:
+                minu = minu%60
+                hour = 1
+            hour+= now.hour
+            if hour >23:
+                hour=0
+            pywhatkit.sendwhatmsg(link.phno, 'Price for'+link.name+'has decreased',hour,minu)
+
+            def send_mail():
+                server = smtplib.SMTP("smtp.gmail.com", 587)
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login("track.amazon123@gmail.com", "Qwerty*987")
+
+                subject = "Test Mail"
+                body = "This is a test mail"
+
+                msg = f"Subject: {subject}\n\n\n{body}"
+                server.sendmail('track.amazon123@gmail.com', link.mail, msg)
+                print("Mail has been sent")
+                server.quit()
+            
+            send_mail()
+
             link.delete()
         else:
             link.save()
