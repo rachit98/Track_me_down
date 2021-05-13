@@ -6,7 +6,7 @@ import pandas as pd
 
 def get_link_data(url):
     headers = {
-        "UserAgent": "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:86.0) Gecko/20100101 Firefox/86.0",
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36",
         "Accept-Language": "en",
     }
 

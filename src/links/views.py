@@ -7,7 +7,6 @@ import pywhatkit
 import smtplib
 import datetime
 
-
 def home_view(request):
     no_discounted = 0
     error = None
@@ -64,7 +63,7 @@ def update_prices(request):
             hour+= now.hour
             if hour >23:
                 hour=0
-            pywhatkit.sendwhatmsg(link.phno, 'Price for'+link.name+'has decreased',hour,minu)
+            pywhatkit.sendwhatmsg(link.phno, 'Price for'+link.name+'has decreased\nClick link '+link.url+' to buy product.',hour,minu)
 
             def send_mail():
                 server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -73,11 +72,11 @@ def update_prices(request):
                 server.ehlo()
                 server.login("track.amazon123@gmail.com", "Qwerty*987")
 
-                subject = "Test Mail"
-                body = "This is a test mail"
+                subject = "Price Notification"
+                body = 'Price for'+link.name+'has decreased\nClick link '+link.url+' to buy product.'
 
                 msg = f"Subject: {subject}\n\n\n{body}"
-                server.sendmail('track.amazon123@gmail.com', link.mail, msg)
+                server.sendmail('track.amazon123@gmail.com', link.email, msg)
                 print("Mail has been sent")
                 server.quit()
             
