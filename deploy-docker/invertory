@@ -1,1 +1,1 @@
-localhost ansible_user=temp
+192.168.0.109 ansible_user=srv
