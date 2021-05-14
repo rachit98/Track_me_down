@@ -1,0 +1,71 @@
+2021-04-12 12:18:27 INFO     Price Change - New Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD) - Space Grey (Latest Model) : 153990.0 : 120000.0
+2021-04-12 12:20:38 INFO     Price Change - OnePlus 9R 5G (Carbon Black, 8GB RAM, 128GB Storage) | Extra INR 2,000 OFF on Exchange : 39990.0 : 35000.0
+2021-04-13 15:18:31 INFO     Price Change - Samsung Galaxy S21 Plus 5G (Phantom Violet, 8GB RAM, 128GB Storage) + Galaxy Buds Pro @990 : 77999.0 : 76998.0
+2021-04-15 14:11:33 INFO     Price Change - Campus Sutra Men's Solid Regular Jacket : 791.0 : 600.0
+2021-04-16 12:00:27 INFO     Price Change - New Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD) - Space Grey (Latest Model) : 131990.0 : 120000.0
+2021-04-20 17:51:35 INFO     Price Change - Logitech B170 Wireless Mouse, 2.4 GHz with USB Nano Receiver, Optical Tracking, 12-Months Battery Life, Ambidextrous, PC/Mac/Laptop - Black : 619.0 : 550.0
+2021-04-20 17:52:07 INFO     Price Change - Yonex Muscle Power 29 Badminton Racquet with free Full Cover (G4, 85-89.9 grams, 28 lbs Tension) : 3011.0 : 2400.0
+2021-04-23 10:18:19 INFO     Price Change - New Apple iPhone 12 (128GB) - Black : 80900.0 : 78000.0
+2021-04-26 11:11:28 INFO     Price Change - OnePlus 9R 5G (Carbon Black, 8GB RAM, 128GB Storage) | Extra INR 2,000 OFF on Exchange : 37999.0 : 35000.0
+2021-04-26 11:09:31 INFO     Price Change - Samsung Galaxy S21 Plus 5G (Phantom Violet, 8GB RAM, 128GB Storage) + Galaxy Buds Pro @990 : 78990.0 : 76998.0
+2021-04-28 15:18:41 INFO     Price Change - New Apple iPhone 12 Mini (64GB) - Green : 69900.0 : 67000.0
+2021-04-29 13:01:27 INFO     Price Change - New Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD) - Space Grey (Latest Model) : 140999.0 : 120000.0
+2021-04-30 12:18:41 INFO     Price Change - New Apple iPhone 12 Mini (64GB) - Green : 69900.0 : 67000.0
+2021-04-30 18:28:43 INFO     Price Change - New Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD) - Space Grey (Latest Model) : 111990.0 : 100000.0
+2021-05-01 12:00:33 INFO     Price Change - Campus Sutra Men's Solid Regular Jacket : 699.0 : 600.0
+2021-05-03 14:18:37 INFO     Price Change - Yonex Muscle Power 29 Badminton Racquet with free Full Cover (G4, 85-89.9 grams, 28 lbs Tension) : 1910.0 : 2400.0
+2021-05-13 15:27:43 ERROR    Internal Server Error: /update/
+Traceback (most recent call last):
+  File "/home/saurav/Desktop/Track_me_down/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/saurav/Desktop/Track_me_down/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/views.py", line 96, in update_prices
+    link.save()
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/models.py", line 29, in save
+    name, price, rating, total, negative, positive, neutral  = get_link_data(self.url)
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/utils.py", line 16, in get_link_data
+    name = soup.select_one(selector="#productTitle").getText()
+AttributeError: 'NoneType' object has no attribute 'getText'
+2021-05-13 15:28:16 INFO     New Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD) - Space Grey (Latest Model) 133990.0 0.0
+2021-05-13 15:28:22 ERROR    Internal Server Error: /update/
+Traceback (most recent call last):
+  File "/home/saurav/Desktop/Track_me_down/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/saurav/Desktop/Track_me_down/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/views.py", line 96, in update_prices
+    link.save()
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/models.py", line 29, in save
+    name, price, rating, total, negative, positive, neutral  = get_link_data(self.url)
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/utils.py", line 16, in get_link_data
+    name = soup.select_one(selector="#productTitle").getText()
+AttributeError: 'NoneType' object has no attribute 'getText'
+2021-05-13 15:34:28 WARNING  Not Found: /favicon.ico
+2021-05-13 15:34:58 INFO     New Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD) - Space Grey (Latest Model) 133990.0 120000.0
+2021-05-13 15:35:00 INFO     OnePlus 9R 5G (Carbon Black, 8GB RAM, 128GB Storage) | Extra INR 2,000 OFF on Exchange 39999.0 35000.0
+2021-05-13 15:35:03 INFO     Samsung Galaxy S21 Plus 5G (Phantom Violet, 8GB RAM, 128GB Storage) + Galaxy Buds Pro @990 76999.0 76998.0
+2021-05-13 15:35:06 INFO     Campus Sutra Men's Solid Regular Jacket 791.0 600.0
+2021-05-13 15:55:05 INFO     /home/saurav/Desktop/zips/Track_me_down/src/links/models.py changed, reloading.
+2021-05-13 16:55:08 INFO     Watching for file changes with StatReloader
+2021-05-13 16:55:14 INFO     /home/saurav/Desktop/zips/Track_me_down/src/links/models.py changed, reloading.
+2021-05-13 16:55:15 INFO     Watching for file changes with StatReloader
+2021-05-13 16:55:24 INFO     /home/saurav/Desktop/zips/Track_me_down/src/links/models.py changed, reloading.
+2021-05-13 16:55:25 INFO     Watching for file changes with StatReloader
+2021-05-13 16:55:47 ERROR    Internal Server Error: /update/
+Traceback (most recent call last):
+  File "/home/saurav/Desktop/Track_me_down/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/saurav/Desktop/Track_me_down/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/views.py", line 107, in update_prices
+    link.save()
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/models.py", line 36, in save
+    name, price, rating, total, negative, positive, neutral  = get_link_data(self.url)
+  File "/home/saurav/Desktop/zips/Track_me_down/src/links/utils.py", line 17, in get_link_data
+    name = soup.select_one(selector="#productTitle").getText()
+AttributeError: 'NoneType' object has no attribute 'getText'
+2021-05-13 16:58:20 INFO     Watching for file changes with StatReloader
+2021-05-13 16:58:51 INFO     /home/saurav/Desktop/zips/Track_me_down/src/links/utils.py changed, reloading.
+2021-05-13 16:58:52 INFO     Watching for file changes with StatReloader
+2021-05-13 16:59:03 INFO     /home/saurav/Desktop/zips/Track_me_down/src/links/utils.py changed, reloading.

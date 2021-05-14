@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from textblob import TextBlob
 import pandas as pd
 
+
 def get_link_data(url):
     headers = {
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.193 Safari/537.36",
@@ -25,7 +26,7 @@ def get_link_data(url):
             try:
                 price = soup.select_one(selector="#priceblock_dealprice").getText()
             except:
-                return name, 0
+                return name,0,0,0,0,0,0
 
     price = price.replace(',', '')
     price = float(price[1:])

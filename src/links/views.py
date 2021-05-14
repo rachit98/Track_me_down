@@ -55,7 +55,8 @@ def update_prices(request):
         if link.trigger >= link.current_price:
             #print('Price reduced for ',link.name,'-------------ph no ',link.phno)
             now = datetime.datetime.now()
-            minu = now.minute + 2 
+            minu = now.minute + 2
+
             hour = 0
             if minu>59:
                 minu = minu%60
@@ -63,7 +64,7 @@ def update_prices(request):
             hour+= now.hour
             if hour >23:
                 hour=0
-            pywhatkit.sendwhatmsg(link.phno, 'Price for'+link.name+'has decreased\nClick link '+link.url+' to buy product.',hour,minu)
+            pywhatkit.sendwhatmsg(link.phno, 'Price for '+link.name+' has decreased\nClick link '+link.url+' to buy product.',hour,minu)
 
             def send_mail():
                 server = smtplib.SMTP("smtp.gmail.com", 587)
@@ -73,14 +74,33 @@ def update_prices(request):
                 server.login("track.amazon123@gmail.com", "Qwerty*987")
 
                 subject = "Price Notification"
-                body = 'Price for'+link.name+'has decreased\nClick link '+link.url+' to buy product.'
+                body = 'Price for '+link.name+' has decreased\nClick link '+link.url+' to buy product.'
 
                 msg = f"Subject: {subject}\n\n\n{body}"
                 server.sendmail('track.amazon123@gmail.com', link.email, msg)
-                print("Mail has been sent")
+                #print("Mail has been sent")
                 server.quit()
             
             send_mail()
+
+            link.delete()
+        elif link.rating == 'OUT OF STOCK':
+            def send_mail_():
+                server = smtplib.SMTP("smtp.gmail.com", 587)
+                server.ehlo()
+                server.starttls()
+                server.ehlo()
+                server.login("track.amazon123@gmail.com", "Qwerty*987")
+
+                subject = "Item Update"
+                body = 'Item '+link.name+' went OUT OF STOCK. Removing it from tracking'
+
+                msg = f"Subject: {subject}\n\n\n{body}"
+                server.sendmail('track.amazon123@gmail.com', link.email, msg)
+                #print("Mail has been sent")
+                server.quit()
+            
+            send_mail_()
 
             link.delete()
         else:
