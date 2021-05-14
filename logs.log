@@ -1,0 +1,10 @@
+2021-05-14 12:12:36 INFO     Watching for file changes with StatReloader
+2021-05-14 12:12:46 ERROR    Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+2021-05-14 12:12:46 WARNING  Bad Request: /
+2021-05-14 12:12:47 ERROR    Invalid HTTP_HOST header: '0.0.0.0:8000'. You may need to add '0.0.0.0' to ALLOWED_HOSTS.
+2021-05-14 12:12:47 WARNING  Bad Request: /favicon.ico
+2021-05-14 12:17:12 INFO     Watching for file changes with StatReloader
+2021-05-14 12:27:54 INFO     Watching for file changes with StatReloader
+2021-05-14 12:36:03 INFO     Watching for file changes with StatReloader
+2021-05-14 13:20:16 INFO     Watching for file changes with StatReloader
+2021-05-14 13:20:20 WARNING  Not Found: /favicon.ico

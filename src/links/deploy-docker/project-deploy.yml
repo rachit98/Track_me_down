@@ -1,0 +1,8 @@
+---
+- name: Pull docker image of project
+  hosts: all
+  tasks:
+    - name: Pull srv97/track_me_down
+      docker_image:
+        name: srv97/track_me_down
+        source: pull

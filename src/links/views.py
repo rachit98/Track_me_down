@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from .models import Link
 from .forms import AddLinkForm
 from django.views.generic import DeleteView
-import pywhatkit
+#import pywhatkit
 import smtplib
 import datetime
 
@@ -64,7 +64,7 @@ def update_prices(request):
             hour+= now.hour
             if hour >23:
                 hour=0
-            pywhatkit.sendwhatmsg(link.phno, 'Price for '+link.name+' has decreased\nClick link '+link.url+' to buy product.',hour,minu)
+            #pywhatkit.sendwhatmsg(link.phno, 'Price for '+link.name+' has decreased\nClick link '+link.url+' to buy product.',hour,minu)
 
             def send_mail():
                 server = smtplib.SMTP("smtp.gmail.com", 587)
